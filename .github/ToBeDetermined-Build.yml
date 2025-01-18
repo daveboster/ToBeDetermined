@@ -1,0 +1,24 @@
+name: ToBeDeteremined-Build
+
+on: [push]
+
+jobs:
+  build:
+    name: ToBeDeteremined Build ${{ matrix.swift }} on ${{ matrix.os }}
+    defaults:
+      run:
+        # jobs.<job_id>.defaults.run
+        # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun
+        working-directory: ./src/ToBeDetermined/
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+        #swift: ["5.2", "5.3"]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: XCode version
+        run: /usr/bin/xcodebuild -version
+      - uses: actions/checkout@v4
+      - name: build archive
+        run: |
+          xcodebuild
