@@ -16,14 +16,9 @@ jobs:
         #swift: ["5.2", "5.3"]
     runs-on: ${{ matrix.os }}
     steps:
-      - name: check Xcode version
+      - name: XCode version
         run: /usr/bin/xcodebuild -version
       - uses: actions/checkout@v4
       - name: build archive
         run: |
-          xcodebuild # -scheme "" \
-          #-archivePath $RUNNER_TEMP/.xcarchive \
-          #-sdk iphoneos \
-          #-configuration Debug \
-          #-destination generic/platform=iOS \
-          #clean archive   
+          xcodebuild
