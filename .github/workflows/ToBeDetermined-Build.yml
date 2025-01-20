@@ -12,13 +12,13 @@ jobs:
         #working-directory: ./src/ToBeDetermined/
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [macos-latest]
         #swift: ["5.2", "5.3"]
     runs-on: ${{ matrix.os }}
     steps:
       - name: XCode version
         run: xcodebuild -version
       - uses: actions/checkout@v4
-      - name: build archive
+      - name: XCode Build
         run: |
-          xcodebuild ./src/ToBeDetermined/
+          xcodebuild
