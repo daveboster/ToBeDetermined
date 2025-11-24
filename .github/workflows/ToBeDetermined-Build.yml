@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: XCode version
         run: xcodebuild -version
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: build archive
         run: |
           xcodebuild
